@@ -4,7 +4,7 @@ const routes = require('./routes');
 const init = async () => {
   const server = Hapi.server({
     port: 5000,
-    host: 'localhost',
+    host: process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0',
     /** options.cors untuk CORS pada spesifik routes,
 * routes.cors untuk CORS diseluruh routes pada server seperti contoh dibawah */
     // chrome://flags/#block-insecure-private-network-requests agar cors berjalan
